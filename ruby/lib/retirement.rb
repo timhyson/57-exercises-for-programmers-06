@@ -12,10 +12,8 @@ class Retirement
   end
 
   def retirement_year(retirement_age, current_age)
-    current_year = Time.now.strftime("%Y")
-    current_year = current_year.to_i
-    working_life(retirement_age, current_age)
-    @retirement_year = current_year + @working_life
+    @working_life = retirement_age - current_age
+    @retirement_year = @working_life + Time.now.year
   end
 
   def output_message
